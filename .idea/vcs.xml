@@ -2,16 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/backEnd/cFamily/c/basicsTopics/basicFunctions" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/backEnd/cFamily/c/testing/basicsTopics/basicFunctions" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/backEnd/cFamily/cPlus/basicsTopics/basicFunctions" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/backEnd/cFamily/cPlus/testing/basicsTopics/basicFunctions" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/backEnd/cFamily/cSharp/basicsTopics/basicFunctions" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/backEnd/cFamily/cSharp/testing/basicsTopics/basicFunctions" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/backEnd/dotnet/basicsTopics/basicFunctions" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/backEnd/dotnet/testing/basicsTopics/basicFunctions" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/backEnd/java/basicsTopics/basicFunctions" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/backEnd/java/testing/basicsTopics/basicFunctions" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/backEnd/python/basicsTopics/basicFunctions" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/backEnd/python/testing/basicsTopics/basicFunctions" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/backEnd/typeScript/basicsTopics/basicFunctions" vcs="Git" />
