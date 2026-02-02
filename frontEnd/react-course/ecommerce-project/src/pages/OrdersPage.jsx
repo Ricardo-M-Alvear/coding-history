@@ -1,17 +1,11 @@
 import "./OrdersPage.css";
-import "./header.css";
+import { Header } from "../components/Header.jsx";
 
 export function OrdersPage() {
   return (
     <>
       <title>Orders</title>
-      <div className="header">
-        <div className="left-section">
-          <a href="/" className="header-link">
-            <img className="logo" src="images/logo-white.png" />
-            <img className="mobile-logo" src="images/mobile-logo-white.png" />
-          </a>
-        </div>
+      <Header />
 
         <div className="middle-section">
           <input className="search-bar" type="text" placeholder="Search" />
