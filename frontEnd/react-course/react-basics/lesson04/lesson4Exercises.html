@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+
+        body{
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .buttonOn{
+            background-color: rgb(25, 135, 84);
+        }
+        .buttonOff{
+            background-color: rgb(220, 53, 69);
+        }
+
+        .emailContainer{
+            margin-bottom: 5px;
+            padding: 10px 10px;
+            border-width: none;
+            width: 200px;
+        }
+
+        .passwordContainer{
+            margin-bottom: 5px;
+            margin-right: 5px;
+            padding: 10px 10px;
+            border-width: none;
+            width: 200px;
+        }
+
+        .showPasswordButton{
+            background-color: green;
+            padding: 10px 10px;
+            color: white;
+            border-radius: 5px;
+            width: 50px;
+        }
+
+        .button-Log-Sign{
+            background-color: rgb(0, 123, 255);
+            padding: 10px 10px;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .counterButtonsContainer {
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(222,222,222);
+        }
+
+        .buttonClick, .reset, .autoClick{
+            background-color: rgb(25, 135, 84);
+            color: white;
+            border-radius: 5px;
+            border-width: none;
+            padding: 10px 10px;
+            margin-left: 5px;
+        }
+      
+
+    </style>
+    <title>Chatbot</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"> </script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+      function App(){
+        const [isButtonOn, setIsButtonOn] = React.useState(true);
+        const [showPassword, setShowPassword] = React.useState(false); 
+        const [time, setTime] = React.useState(dayjs().format('HH:mm:ss'));
+        const buttonElem = React.useRef(null);
+
+        React.useEffect(() => {afterCreation}, [])
+        const afterCreation = setInterval(() => {
+            setTime(dayjs().format('HH:mm:ss'))
+            console.log("run code")
+        }, 1000)
+
+        React.useEffect(() => {everySecond}, [buttonElem])
+        function everySecond(){setInterval(() => {
+            addOne();
+        }, 1000)}
+
+        function addOne(){
+            buttonElem.current = buttonElem.current + 1;
+        }
+
+        function turnStatus(){
+            if (isButtonOn) return setIsButtonOn(false)
+            return setIsButtonOn(true)
+        }
+
+        function passwordShowing(){
+            if (showPassword) return setShowPassword(false)
+            return setShowPassword(true)
+        }
+
+        function reset(){
+            buttonElem.current = 0;
+        }
+
+        return(
+            <div>
+                <button onClick={turnStatus} className={isButtonOn ? "buttonOn" : "buttonOff"}>{isButtonOn ? "ON" : "OFF"}</button>
+
+                <h1>Hello, welcome to my website</h1>
+
+                    <div> 
+                        <input className="emailContainer" type="email" placeholder="Email" />
+                    </div>
+                   
+                    <div> 
+                        <input className="passwordContainer" type={showPassword ? "password" : "text"} placeholder="Password" />    
+                        <button className="showPasswordButton" onClick={passwordShowing}>{showPassword ? "Show" : "Hide"}</button>
+                    </div>
+
+                <button className="button-Log-Sign">Login</button>
+                <button className="button-Log-Sign">Sign up</button>
+
+                <p>Current time: {time}</p>
+
+                <div className="counterButtonsContainer"> 
+                    {buttonElem.current === 1 || buttonElem.current === null  ?  <button className="buttonClick" onClick={addOne}>Clicked {buttonElem.current} time</button> : <button className="buttonClick" onClick={addOne}>Clicked {buttonElem.current} times</button>}
+                    <button onClick={reset} className="reset">Reset</button>
+                    <button onClick={everySecond} className="autoClick">Auto Click</button>
+                </div>
+            </div>
+        )
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
